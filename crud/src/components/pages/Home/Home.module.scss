@@ -1,3 +1,19 @@
+.allPosts{
+    display: flex;
+    justify-content: space-between;
+    .button{
+        background-color: white;
+        border: 1px solid rgb(0, 191, 255);
+        border-radius: 4px;
+        color: rgb(0, 191, 255);
+        padding: 10px 15px;
+    }
+    .button:hover{
+        background-color: rgb(0, 191, 255);
+        color: white;
+    }
+}
+
 .post{
     border: 1px solid rgba(45, 44, 44, 0.409);
     border-radius: 5px;

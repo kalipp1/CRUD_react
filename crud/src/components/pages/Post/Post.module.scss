@@ -1,0 +1,54 @@
+.post{
+    margin-inline: 35vh;
+}
+
+.title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.buttons{
+    .buttonBlue{
+        color: rgb(0, 191, 255);
+        border: 1px solid rgb(0, 191, 255);
+    }
+    .buttonRed{
+        color: red;
+        border: 1px solid red;
+    }
+    .buttonBlue:hover{
+        background-color: rgb(0, 191, 255);
+        color: white;
+    }
+    .buttonRed:hover{
+        background-color: red;
+        color: white;
+    }
+    button{
+        margin-inline: 5px;
+        border-radius: 4px;
+        background-color: white;
+        padding: 8px;
+        padding-inline: 15px;
+    }
+}
+
+.info{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    .infoItem{
+        display: flex;
+        flex-direction: row;
+        b{
+            margin-right: 5px;
+        }
+        p{
+            margin-bottom: 0px;
+        }
+    }   
+}
+.description{
+    margin-top: 3vh;
+}
