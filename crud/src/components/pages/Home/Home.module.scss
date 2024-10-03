@@ -1,0 +1,36 @@
+.post{
+    border: 1px solid rgba(45, 44, 44, 0.409);
+    border-radius: 5px;
+    width: 500px;
+    padding: 2vh;
+    margin: 2vh;
+    font-size: 15px;
+    .info{
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 10px;
+        .infoItem{
+            display: flex;
+            flex-direction: row;
+            b{
+                margin-right: 5px;
+            }
+            p{
+                margin-bottom: 0px;
+            }
+        }
+    }
+}
+
+.posts{
+    display: flex;
+}
+
+.button{
+    padding: 10px;
+    font-size: 15px;
+    color: white;
+    background-color: blue;
+    border: none;
+    border-radius: 5px;
+}
