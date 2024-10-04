@@ -1,0 +1,30 @@
+.buttonRed{
+    color: red;
+    border: 1px solid red;
+}
+.buttonRed:hover{
+    background-color: red;
+    color: white;
+}
+.buttonRedModal{
+    color: red;
+    border: 1px solid red;
+    display: inline-block;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    user-select: none;
+    background-color: transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+.buttonRedModal:hover{
+    color: white;
+    background-color: red;
+}

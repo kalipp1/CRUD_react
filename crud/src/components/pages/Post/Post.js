@@ -4,11 +4,20 @@ import { useSelector } from 'react-redux';
 import { getPostById } from '../../../redux/postsRedux';
 import Nav from 'react-bootstrap/Nav';
 import { NavLink } from 'react-router-dom';
+import DeleteButton from '../../views/DeleteButton/DeleteButton';
+import { useDispatch } from 'react-redux';
+import { removePost } from '../../../redux/postsRedux';
+import { Navigate } from 'react-router-dom';
 
 const Post = () => {
     const { postId } = useParams();
-    console.log(postId);
     const post = useSelector(state => getPostById(state, postId));
+    const dispatch = useDispatch();
+    const handleRemove = function(){
+        dispatch(removePost(post.id));
+    }
+    if(!post) return <Navigate to={"/"} />
+    else
     return (
       <div className={styles.post}>
         <section className={styles.title}>
@@ -16,7 +25,7 @@ const Post = () => {
             <div className={styles.buttons}>
                 <Nav>
                     <NavLink as={NavLink} to={"/post/edit/"+post.id}><button className={styles.buttonBlue}>Edit</button></NavLink>
-                    <button className={styles.buttonRed}>Delete</button>
+                    <DeleteButton onDelete={handleRemove} />
                 </Nav>
             </div>
         </section>
