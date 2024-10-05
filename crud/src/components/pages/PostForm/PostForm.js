@@ -1,9 +1,11 @@
 import styles from './PostForm.module.scss';
+import AddPostForm from '../../features/AddPostForm/AddPostForm';
 
 const PostForm = () => {
     return (
-      <div>
-        <h1>PostForm</h1>
+      <div className={styles.addPostPage}>
+        <h1>Add Post</h1>
+        <AddPostForm />
       </div>
     );
   };

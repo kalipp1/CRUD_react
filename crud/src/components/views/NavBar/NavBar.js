@@ -10,7 +10,7 @@ const NavBar = () => {
     return (
         <Navbar className={clsx(styles.navbar, "bg-body-tertiary")}>
         <Container>
-          <Navbar.Brand className={styles.logo}>Blog.app</Navbar.Brand>
+          <Navbar.Brand><span className={styles.logo}>Blog.app</span></Navbar.Brand>
           <Nav className={styles.nav}>
             <Nav.Link className={clsx(styles.link, location.pathname==="/"&& styles.linkActive)} as={NavLink} to="/">Home</Nav.Link>
             <Nav.Link className={clsx(styles.link, location.pathname==="/about"&& styles.linkActive)} as={NavLink} to="/about">About</Nav.Link>
