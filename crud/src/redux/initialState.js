@@ -5,7 +5,7 @@ const initialState = {
             title: 'Cooking',
             shortDescription: 'Cooking dishes ...',
             content: 'Food',
-            publishedDate: '02-02-2022',
+            publishedDate: new Date('2022-02-02'),
             author: 'John Doe'
       },
       {
@@ -13,7 +13,7 @@ const initialState = {
             title: 'Listening',
             shortDescription: 'Listening to music ...',
             content: 'Music',
-            publishedDate: '13-08-2023',
+            publishedDate: new Date('2023-08-13'),
             author: 'David Copper'
       },
       {
@@ -21,7 +21,7 @@ const initialState = {
             title: 'Watching',
             shortDescription: 'Watching movies ...',
             content: 'Movies',
-            publishedDate: '29-11-2024',
+            publishedDate: new Date('2024-11-29'),
             author: 'Gustav Field'
       }
     ]

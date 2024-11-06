@@ -1,7 +1,7 @@
 .form {
     display: flex;
     flex-direction: column;
-    button{
+    .buttonAdd{
         padding: 10px;
         font-size: 15px;
         color: white;
@@ -9,5 +9,6 @@
         border: none;
         border-radius: 5px;
         width: 100px;
+        margin-top: 10px;
     }
 }

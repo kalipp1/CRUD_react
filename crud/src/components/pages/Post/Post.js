@@ -8,6 +8,7 @@ import DeleteButton from '../../views/DeleteButton/DeleteButton';
 import { useDispatch } from 'react-redux';
 import { removePost } from '../../../redux/postsRedux';
 import { Navigate } from 'react-router-dom';
+import dateToStr from '../../../utils/dateToStr';
 
 const Post = () => {
     const { postId } = useParams();
@@ -32,9 +33,9 @@ const Post = () => {
         <article>
             <div className={styles.info}>
                 <span className={styles.infoItem}><b>Author: </b><p>{post.author}</p></span>
-                <span className={styles.infoItem}><b>Published: </b><p>{post.publishedDate}</p></span>
+                <span className={styles.infoItem}><b>Published: </b><p>{dateToStr(new Date(post.publishedDate))}</p></span>
             </div>
-            <p className={styles.description}>{post.shortDescription}</p>
+            <p className={styles.description} dangerouslySetInnerHTML={{ __html: post.shortDescription }} />
         </article>
       </div>
     );

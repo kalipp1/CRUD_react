@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { getAllPosts } from '../../../redux/postsRedux';
 import Nav from 'react-bootstrap/Nav';
 import { NavLink } from 'react-router-dom';
+import dateToStr from '../../../utils/dateToStr';
 
 const Home = () => {
     const posts = useSelector(getAllPosts); 
@@ -21,9 +22,9 @@ const Home = () => {
                         <h4>{post.title}</h4>
                         <div className={styles.info}>
                         <span className={styles.infoItem}><b>Author: </b><p>{post.author}</p></span>
-                        <span className={styles.infoItem}><b>Published: </b><p>{post.publishedDate}</p></span>
+                        <span className={styles.infoItem}><b>Published: </b><p>{dateToStr(new Date(post.publishedDate))}</p></span>
                         </div>
-                        <p>{post.shortDescription}</p>
+                        <p dangerouslySetInnerHTML={{ __html: post.shortDescription }} />
                         <Nav>
                             <Nav.Link as={NavLink} to={"/post/"+post.id}><button className={styles.button}>Read more</button></Nav.Link>
                         </Nav>

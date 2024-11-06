@@ -5,6 +5,10 @@ import { addPost } from '../../../redux/postsRedux';
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 const PostForm = ({ action, actionText, ...props}) => {
     const [title, setTitle] = useState(props.title || '');
@@ -22,10 +26,11 @@ const PostForm = ({ action, actionText, ...props}) => {
         <form className={styles.form} onSubmit={handleSubmit}>
         Title <TextInput value={title} placeholder={'Enter title here'} onChange={e => setTitle(e.target.value)} />
         Author <TextInput value={author} placeholder={'Enter author here'} onChange={e => setAuthor(e.target.value)} />
-        Published <TextInput value={publishedDate} placeholder={'Enter data here'} onChange={e => setPublishedDate(e.target.value)} />
-        Short description <TextArea value={shortDescription} rows={4} cols={50} placeholder={'Leave a short description here'} onChange={e => setShortDescription(e.target.value)} />
-        Main content <TextArea value={content} rows={15} cols={50} placeholder={'Leave a main content here'} onChange={e => setContent(e.target.value)} />
-        <button>{actionText}</button>
+        Published <DatePicker selected={publishedDate} onChange={(date) => setPublishedDate(date)} />
+        {/* Published <TextInput value={publishedDate} placeholder={'Enter data here'} onChange={e => setPublishedDate(e.target.value)} /> */}
+        Short description <ReactQuill theme='snow' placeholder='Leave a short description here' value={shortDescription} onChange={setShortDescription} />    
+        Main content <ReactQuill theme="snow" placeholder='Leave a main content here' value={content} onChange={setContent} />
+        <button className={styles.buttonAdd}>{actionText}</button>
     </form>
     );
 
