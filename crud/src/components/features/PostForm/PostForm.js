@@ -9,22 +9,36 @@ import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { useForm } from "react-hook-form";
 
 const PostForm = ({ action, actionText, ...props}) => {
+    const { register, handleSubmit: validate, formState: { errors } }
+    = useForm();
     const [title, setTitle] = useState(props.title || '');
     const [author, setAuthor] = useState(props.author || '');
     const [publishedDate, setPublishedDate] = useState(props.publishedDate || '');
     const [shortDescription, setShortDescription] = useState(props.shortDescription || '');
     const [content, setContent] = useState(props.content || '');
 
-    const handleSubmit = e => {
-        e.preventDefault();
+    const handleSubmit = () => {
+        // e.preventDefault();
         action({ title, author, publishedDate, shortDescription, content });
       };
 
     return (
-        <form className={styles.form} onSubmit={handleSubmit}>
-        Title <TextInput value={title} placeholder={'Enter title here'} onChange={e => setTitle(e.target.value)} />
+
+        // <Form.Group className="mb-3" controlId="formBasicEmail">
+        //     <Form.Label>Title</Form.Label>
+        //     <Form.Control
+        //         {...register("title", { required: true })}
+        //         value={title}
+        //         onChange={e => setTitle(e.target.value)}
+        //         type="text" placeholder="Enter title"
+        //     />
+        //     {errors.title && <span>This field is required</span>}
+        // </Form.Group>
+    <form className={styles.form} onSubmit={validate(handleSubmit)}>
+        Title <TextInput {...register("title", { required: true })} value={title} placeholder={'Enter title here'} onChange={e => setTitle(e.target.value)} />{errors.title && <span>This field is required</span>}
         Author <TextInput value={author} placeholder={'Enter author here'} onChange={e => setAuthor(e.target.value)} />
         Published <DatePicker selected={publishedDate} onChange={(date) => setPublishedDate(date)} />
         {/* Published <TextInput value={publishedDate} placeholder={'Enter data here'} onChange={e => setPublishedDate(e.target.value)} /> */}
