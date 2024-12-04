@@ -38,8 +38,8 @@ const PostForm = ({ action, actionText, ...props}) => {
         //     {errors.title && <span>This field is required</span>}
         // </Form.Group>
     <form className={styles.form} onSubmit={validate(handleSubmit)}>
-        Title <TextInput {...register("title", { required: true })} value={title} placeholder={'Enter title here'} onChange={e => setTitle(e.target.value)} />{errors.title && <span>This field is required</span>}
-        Author <TextInput value={author} placeholder={'Enter author here'} onChange={e => setAuthor(e.target.value)} />
+        Title <TextInput {...register("title", { required: true, minLength: 3 })} value={title} placeholder={'Enter title here'} onChange={e => setTitle(e.target.value)} />{errors.title && <small className="d-block form-text text-danger mt-0 mb-2">Title is too short (min is 3)</small>}
+        Author <TextInput {...register("author", { required: true, minLength: 4 })} value={author} placeholder={'Enter author here'} onChange={e => setAuthor(e.target.value)} />{errors.title && <small className="d-block form-text text-danger mt-0 mb-2">Author is too short (min is 4)</small>}
         Published <DatePicker selected={publishedDate} onChange={(date) => setPublishedDate(date)} />
         {/* Published <TextInput value={publishedDate} placeholder={'Enter data here'} onChange={e => setPublishedDate(e.target.value)} /> */}
         Short description <ReactQuill theme='snow' placeholder='Leave a short description here' value={shortDescription} onChange={setShortDescription} />    
